@@ -1,6 +1,5 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { Supermarket } from '../supermarket.model';
 import { SupermarketService } from '../supermarket.service';
 //import { Recipe } from '../../recipe.model';
@@ -10,11 +9,11 @@ import { SupermarketService } from '../supermarket.service';
     templateUrl: './supermarket-products.component.html',
     styleUrls: ['./supermarket-products.component.css']
 })
-export class SupermarketProductsComponent implements OnInit, OnDestroy {
+export class SupermarketProductsComponent implements OnInit {
     id: number;
     supermarket: Supermarket;
     superName: string = '';
-    supermarketSubscriber: Subscription;
+    //supermarketSubscriber: Subscription;
     isLoading: boolean = false;
 
     constructor(private route: ActivatedRoute, private supermarketService: SupermarketService) { }
@@ -32,8 +31,8 @@ export class SupermarketProductsComponent implements OnInit, OnDestroy {
         });
     }
 
-    ngOnDestroy(): void {
-        this.supermarketSubscriber.unsubscribe();
-    }
+    // ngOnDestroy(): void {
+    //     this.supermarketSubscriber.unsubscribe();
+    // }
 
 }
