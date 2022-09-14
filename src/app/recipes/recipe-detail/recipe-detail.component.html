@@ -42,6 +42,9 @@
     <div *ngIf="isLoading">
         <app-loading-spinner></app-loading-spinner>
     </div>
+    <div *ngIf="!showSupermarkets && notProducts">
+        <p class="text-muted">There is no stock of the ingredient {{ingredientToSearch}}</p>
+    </div>
     <div *ngIf="showSupermarkets">
         <span class="text-muted">Searched ingredient: <strong>{{ingredientToSearch}}</strong></span>
         <div class="card">

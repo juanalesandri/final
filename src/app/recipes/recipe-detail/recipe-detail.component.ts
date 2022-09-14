@@ -19,6 +19,7 @@ export class RecipeDetailComponent implements OnInit {
   productsInSupermarkets: any[] = [];
   ingredientToSearch: string = '';
   isLoading: boolean = false;
+  notProducts: boolean = false;
 
   constructor(private recipeService: RecipeService, private route: ActivatedRoute, private router: Router, private supermarketService: SupermarketService) { }
 
@@ -46,15 +47,22 @@ export class RecipeDetailComponent implements OnInit {
 
   searchIngredient(ingredient: Ingredient) {
     this.isLoading = true;
+    this.notProducts = false;
+    this.showSupermarkets = false;
     this.ingredientToSearch = ingredient.name;
 
     this.supermarketService.getAllSupermarkets().subscribe(supermarkets => {
-      this.showSupermarkets = true;
+      //this.showSupermarkets = supermarkets.length > 0;
+      //console.log('show', supermarkets)
       this.isLoading = false;
 
       this.supermarkets = supermarkets.filter(supermarket => {
         return supermarket.products.some(product => product.name.toLowerCase() === this.ingredientToSearch.toLowerCase());
       });
+
+      this.showSupermarkets = this.supermarkets.length > 0;
+      this.notProducts = true;
+      console.log('SHOW', this.showSupermarkets)
 
       this.productsInSupermarkets = this.supermarkets.map(supermarket => {
         let products = {
