@@ -12,15 +12,19 @@ import { RecipeService } from '../recipes.service';
 export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[];
   recipeChangeSubscription: Subscription; //agregado por mi
+  existRecipes: boolean = false;
 
   constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.recipeChangeSubscription = this.recipeService.recipedChanged.subscribe((recipes: Recipe[]) => {
-      console.log('lista de recetas actualizada', recipes);
       this.recipes = recipes;
+      //TODO: validar si hay recetas!!!!!
+      //this.recipes = [];
+      this.existRecipes = this.recipes.length > 0 ? true : false;
     })
-    this.recipes = this.recipeService.getRecipes();
+    //this.recipes = this.recipeService.getRecipes();
+    //console.log('RECETAS', this.recipes);
   }
 
   ngOnDestroy(): void {//agregado por mi
