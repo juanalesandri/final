@@ -10,11 +10,13 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
 import { AuthModule } from './auth/authModule';
+import { AuthTestComponent } from './auth/auth-test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    AuthTestComponent
   ],
   imports: [
     BrowserModule,

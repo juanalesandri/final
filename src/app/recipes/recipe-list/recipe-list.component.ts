@@ -11,7 +11,7 @@ import { RecipeService } from '../recipes.service';
 })
 export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[];
-  recipeChangeSubscription: Subscription; //agregado por mi
+  recipeChangeSubscription: Subscription;
   existRecipes: boolean = false;
 
   constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }

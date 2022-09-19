@@ -9,6 +9,8 @@ import { AuthResponseData, AuthService } from "./auth.service";
     templateUrl: './auth.component.html'
 })
 export class AuthComponent {
+
+    title: string = 'Welcome to the recipe book';
     isLoginMode: boolean = true;
     isLoading: boolean = false;
     error: string = null;
