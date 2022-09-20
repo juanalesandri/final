@@ -67,10 +67,12 @@
                 <tbody>
                     <tr *ngFor="let product of productsInSupermarkets;let i=index">
                         <th scope="row">{{i+1}}</th>
-                        <td>{{product.superName}}</td>
-                        <td>{{product.superAddress}}</td>
-                        <td>${{product.product.price}}</td>
-                        <td>{{product.product.stock}}</td>
+                        <td class="green-color">{{product.superName}}</td>
+                        <td class="green-color">{{product.superAddress}}</td>
+                        <td class="green-color">${{product.product.price}}</td>
+                        <td
+                            [ngClass]="{'little-stock': product.product.stock < stockLimit, 'green-color': product.product.stock >= stockLimit}">
+                            {{product.product.stock}}</td>
                     </tr>
                 </tbody>
             </table>

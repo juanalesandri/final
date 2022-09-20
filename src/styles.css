@@ -38,3 +38,16 @@ body {
 .p-r-8 {
     padding-right: 8px;
 }
+
+.title {
+    color: #a96464;
+}
+
+.little-stock {
+    color: red;
+    font-weight: bold;
+}
+
+.green-color {
+    color: green;
+}

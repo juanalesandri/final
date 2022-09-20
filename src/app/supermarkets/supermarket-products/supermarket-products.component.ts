@@ -15,6 +15,7 @@ export class SupermarketProductsComponent implements OnInit {
     superName: string = '';
     //supermarketSubscriber: Subscription;
     isLoading: boolean = false;
+    stockLimit: number = 6;
 
     constructor(private route: ActivatedRoute, private supermarketService: SupermarketService) { }
 

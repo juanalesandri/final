@@ -20,6 +20,7 @@ export class RecipeDetailComponent implements OnInit {
   ingredientToSearch: string = '';
   isLoading: boolean = false;
   notProducts: boolean = false;
+  stockLimit: number = 6;
 
   constructor(private recipeService: RecipeService, private route: ActivatedRoute, private router: Router, private supermarketService: SupermarketService) { }
 
